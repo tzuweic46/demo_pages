@@ -23,7 +23,7 @@
       
       function getRequest(){
           a1 =  JSON.parse(request.responseText);
-          document.getElementById("demo").innerHTML = a1[44].營業地址;
+          document.getElementById("demo").innerHTML = JSON.stringify(a1[44]);
       }
 
       function change_text(){
