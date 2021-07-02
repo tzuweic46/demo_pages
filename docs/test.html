@@ -16,13 +16,22 @@
       <p id="demo">I am sample paragraph.</p>
       <button onclick="change_text()">Click me</button>
     
-      <script>
-         function change_text(){
-          var t1 = '莫德納疫苗';
-          document.getElementById("demo").innerHTML = t1;
-          console.log(t1 + "-這邊是console log產生的");
+       <script>
+      const endpoint = 'https://data.kcg.gov.tw/dataset/a98754a3-3446-4c9a-abfc-58dc49f2158c/resource/48d4dfc4-a4b2-44a5-bdec-70f9558cd25d/download/yopendata1070622opendatajson-1070622.json'; 
+      const request = new XMLHttpRequest();
+      
+      function getRequest(){
+          document.getElementById("demo").innerHTML = request.responseText;
+      }
+
+      function change_text(){
+        console.log("這邊是console log產生的");
+        request.open('GET', endpoint,true);
+        request.send(null); 
+        request.addEventListener('load',getRequest);
+        console.log('request.responseText=' + request.responseText);
       }  
-      </script>
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
